@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style type="text/css">
+            @import "http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dijit/themes/tundra/tundra.css";
+            @import "http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dojo/resources/dojo.css";
+
+            @import "http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dojox/grid/resources/tundraGrid.css";
+
+            
+            #grid {
+                height: 20em;
+            }
+            html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                overflow:hidden;
+            }
+
+
+            #borderContainer {
+                width: 100%;
+                height: 100%;
+            }
+        </style> 
+        <script type="text/javascript">
+            var dojoConfig = {
+                parseOnLoad: true,
+                async: true,
+                packages: [
+                    {
+                        name: "client",
+                        location: location.href+"scripts/"
+                    }
+                ]
+            };
+        </script>
+        <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dojo/dojo.js"></script>  
+        <script>
+            require(["dojo/ready", "dojo/parser", "dijit/registry", "dojo/on", "client/application"], 
+            function(ready, parser, registry, on, application){
+                ready(function(){
+                    var connectButton = registry.byId("connectButton");
+                    application.init();
+                    on(connectButton, "click", function(){
+                        var urlBox = registry.byId("serverUrl");
+                        
+                        application.connect("proxy/"); 
+                    });
+                    
+                });
+            });
+        </script>
+
+    </head>
+    <body class="tundra">
+        <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="liveSplitters:true" id="borderContainer">
+            <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'" style="width: 100px;">
+                <div id="server">
+                   
+                    <button id="connectButton" data-dojo-type="dijit/form/Button"  type="button">Connect</button>
+                </div>
+                <div id="companyLevelToolbar" data-dojo-type="dijit/Toolbar" >
+                    <div data-dojo-type="dijit/form/Button" id="toolbar.create"
+                         data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconNewPage'">Create</div>
+                    <div data-dojo-type="dijit/form/Button" id="toolbar.delete"
+                         data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconDelete'">Delete</div>
+
+                </div>
+            </div>
+            <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'">
+
+                <div data-dojo-type="dijit/layout/TabContainer"  style="width: 100%; height: 100%;">
+                    <div data-dojo-type="dijit/layout/ContentPane" id="clTab" title="Company Levels" data-dojo-props="selected:true">
+                        
+                        <b>Tip:</b>Double click on row to update company level item.
+                        <div id="companyLevelsGrid"> </div>
+                    </div>
+                    <div data-dojo-type="dijit/layout/ContentPane" id="carTab" title="Cars">
+                        <b>Tip:</b>Double click on row to update company level item.<br />
+                        <label for="carCompanyLevel">Get Cars available for companyLevel:</label>
+                        <select id="carsByCompanyLevel" data-dojo-type="dijit/form/Select"></select>
+                        <div id="carsGrid"> </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>  
+
+        <div data-dojo-type="dijit/Dialog" id="updateCompanyLevelDialog" title="Add CompanyLevel">
+            <table>
+                <tr>
+                    <td><label for="companyLevelName"> ComapanyLevel Name </label></td>
+                    <td><input data-dojo-type="dijit/form/TextBox" id="companyLevelName" /></td>
+                </tr>
+                <tr>
+                    <td><label for="companyLevelValue"> ComapanyLevel Value </label></td>
+                    <td> <input data-dojo-type="dijit/form/NumberSpinner" value="0" id="companyLevelValue" /></td>
+                </tr>
+            </table>
+            
+             <div data-dojo-type="dijit/form/Button" id="updateCompanyLevelButton">Update</div>
+        </div>
+        
+        <div data-dojo-type="dijit/Dialog" id="newCompanyLevelDialog" title="Add CompanyLevel">
+            <table>
+                <tr>
+                    <td><label for="newCompanyLevelName"> ComapanyLevel Name </label></td>
+                    <td><input data-dojo-type="dijit/form/TextBox" id="newCompanyLevelName" /></td>
+                </tr>
+               
+            </table>
+            
+             <div data-dojo-type="dijit/form/Button" id="addCompanyLevelButton">Create</div>
+        </div>
+        <div data-dojo-type="dijit/Dialog" id="carDialog" title="Add Car">
+            <table>
+                <tr>
+                    <td><label for="model"> Model </label></td>
+                    <td><input data-dojo-type="dijit/form/TextBox" id="model" /></td>
+                </tr>
+                <tr>
+                    <td><label for="spz">SPZ </label></td>
+                    <td><input data-dojo-type="dijit/form/TextBox" id="spz" /></td>
+                </tr>
+                 <tr>
+                    <td><label for="brand">Brand </label></td>
+                    <td><input data-dojo-type="dijit/form/TextBox" id="brand" /></td>
+                </tr>
+                 <tr>
+                    <td><label for="available">Available </label></td>
+                    <td><input data-dojo-type="dijit/form/CheckBox" id="available" /></td>
+                </tr>
+                 <tr>
+                    <td><label for="carCompanyLevel">CompanyLevel </label></td>
+                    <td><select id="carCompanyLevel" data-dojo-type="dijit/form/Select"></select></td>
+                </tr>
+                <tr>
+                    <td><label for="carCompanyLevel">CreationYear</label></td>
+                    <td><input data-dojo-type="dijit/form/TextBox" id="creationYear" /></td>
+                </tr>
+                
+               
+            </table>
+            
+             <div data-dojo-type="dijit/form/Button" id="addCar">Create</div>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+"
+default-autowire="byName" >
+
+    <context:component-scan base-package="cz.muni.fi.pa165.vozovypark.web"/>
+    <context:annotation-config/>
+    <tx:annotation-driven/>
+    <import resource="classpath*:applicationContext.xml" />
+    <bean name="mainMenu" class="cz.muni.fi.pa165.vozovypark.web.menu.Menu">
+        <property name="menuItems">
+            <list value-type="cz.muni.fi.pa165.vozovypark.web.menu.MenuItem">
+                <bean class="cz.muni.fi.pa165.vozovypark.web.menu.MenuItem">
+                    <property name="active" value="false"/>
+                    <property name="name" value="mainMenu.reservations" />
+                    <property name="url" value="/reservations" />
+                </bean>                
+                <bean class="cz.muni.fi.pa165.vozovypark.web.menu.MenuItem">
+                    <property name="active" value="false"/>
+                    <property name="name" value="mainMenu.carParkAdmin" />
+                    <property name="url" value="/carPark" />
+                </bean>
+                <bean class="cz.muni.fi.pa165.vozovypark.web.menu.MenuItem">
+                    <property name="active" value="false"/>
+                    <property name="name" value="mainMenu.companyAdmin" />
+                    <property name="url" value="/company" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+    
+    <bean name="reservationsSubMenu" class="cz.muni.fi.pa165.vozovypark.web.menu.Menu">
+        <property name="menuItems">
+            <list value-type="cz.muni.fi.pa165.vozovypark.web.menu.MenuItem">
+                <bean class="cz.muni.fi.pa165.vozovypark.web.menu.MenuItem">
+                    <property name="active" value="false"/>
+                    <property name="name" value="reservationsSubMenu.myReservations" />
+                    <property name="url" value="/reservations" />
+                </bean>                
+                <bean class="cz.muni.fi.pa165.vozovypark.web.menu.MenuItem">
+                    <property name="active" value="false"/>
+                    <property name="name" value="reservationsSubMenu.newReservation" />
+                    <property name="url" value="/reservations/newReservation" />
+                </bean>
+                <bean class="cz.muni.fi.pa165.vozovypark.web.menu.MenuItem">
+                    <property name="active" value="false"/>
+                    <property name="name" value="reservationsSubMenu.accept" />
+                    <property name="url" value="/reservations/accept" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+    
+    <bean name="companySubMenu" class="cz.muni.fi.pa165.vozovypark.web.menu.Menu">
+        <property name="menuItems">
+            <list value-type="cz.muni.fi.pa165.vozovypark.web.menu.MenuItem">
+                <bean class="cz.muni.fi.pa165.vozovypark.web.menu.MenuItem">
+                    <property name="active" value="false"/>
+                    <property name="name" value="companyAdmin.employees" />
+                    <property name="url" value="/company" />
+                </bean>                
+                <bean class="cz.muni.fi.pa165.vozovypark.web.menu.MenuItem">
+                    <property name="active" value="false"/>
+                    <property name="name" value="companyAdmin.addEmployee" />
+                    <property name="url" value="/company/addEmployee" />
+                </bean> 
+                <bean class="cz.muni.fi.pa165.vozovypark.web.menu.MenuItem">
+                    <property name="active" value="false"/>
+                    <property name="name" value="companyAdmin.companyLevels" />
+                    <property name="url" value="/company/companyLevels" />
+                </bean>
+                <bean class="cz.muni.fi.pa165.vozovypark.web.menu.MenuItem">
+                    <property name="active" value="false"/>
+                    <property name="name" value="companyAdmin.addCompanyLevel" />
+                    <property name="url" value="/company/addCompanyLevel" />
+                </bean> 
+            </list>
+        </property>
+    </bean>
+    
+    
+    <bean name="carParkSubMenu" class="cz.muni.fi.pa165.vozovypark.web.menu.Menu">
+        <property name="menuItems">
+            <list value-type="cz.muni.fi.pa165.vozovypark.web.menu.MenuItem">
+                <bean class="cz.muni.fi.pa165.vozovypark.web.menu.MenuItem">
+                    <property name="active" value="false"/>
+                    <property name="name" value="carPark.release" />
+                    <property name="url" value="/carPark" />
+                </bean>                
+                <bean class="cz.muni.fi.pa165.vozovypark.web.menu.MenuItem">
+                    <property name="active" value="false"/>
+                    <property name="name" value="carPark.receive" />
+                    <property name="url" value="/carPark/receive" />
+                </bean> 
+                <bean class="cz.muni.fi.pa165.vozovypark.web.menu.MenuItem">
+                    <property name="active" value="false"/>
+                    <property name="name" value="carPark.cars" />
+                    <property name="url" value="/carPark/cars" />
+                </bean>
+                <bean class="cz.muni.fi.pa165.vozovypark.web.menu.MenuItem">
+                    <property name="active" value="false"/>
+                    <property name="name" value="carPark.addCar" />
+                    <property name="url" value="/carPark/addCar" />
+                </bean> 
+            </list>
+        </property>
+    </bean>
+    
+    
+    
+
+
+
+</beans>

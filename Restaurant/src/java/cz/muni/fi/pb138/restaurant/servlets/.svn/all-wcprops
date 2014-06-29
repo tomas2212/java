@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/45/trunk/Restaurant/src/java/cz/muni/fi/pb138/restaurant/servlets
+END
+MyProfile.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/40/trunk/Restaurant/src/java/cz/muni/fi/pb138/restaurant/servlets/MyProfile.java
+END
+LoginServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/42/trunk/Restaurant/src/java/cz/muni/fi/pb138/restaurant/servlets/LoginServlet.java
+END
+ReservationServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/45/trunk/Restaurant/src/java/cz/muni/fi/pb138/restaurant/servlets/ReservationServlet.java
+END
