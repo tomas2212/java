@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="cz.muni.fi.pa165.vozovypark"/>
+
+    <tx:annotation-driven transaction-manager="transactionManager" />  
+    <import resource="dataSource.xml" />
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" /> 
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+    
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="CarPark"/>
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+    
+    <bean id="mapper" class="org.dozer.DozerBeanMapper" /> 
+    
+    <bean id="employeeDao" class="cz.muni.fi.pa165.vozovypark.DAO.EmployeeDAOImpl" />
+    <bean id="companyLevelDao" class="cz.muni.fi.pa165.vozovypark.DAO.CompanyLevelDAOImpl" />
+    <bean id="carDao" class="cz.muni.fi.pa165.vozovypark.DAO.CarDAOImpl" />
+    <bean id="reservationDao" class="cz.muni.fi.pa165.vozovypark.DAO.ReservationDAOImpl" />
+    
+    <bean id="CompanyLevelService" name="CompanyLevelService" class="cz.muni.fi.pa165.vozovypark.service.CompanyServiceImpl" >
+        <property name="companyLevelDao" ref="companyLevelDao"/>
+        <property name="mapper" ref="mapper" />
+    </bean>
+    
+    <bean id="EmployeeService" name="EmployeeService" class="cz.muni.fi.pa165.vozovypark.service.EmployeeServiceImpl" >
+        <property name="employeeDAO" ref="employeeDao"/>
+        <property name="mapper" ref="mapper" />
+    </bean>
+    
+    <bean id="CarService" name="CarService" class="cz.muni.fi.pa165.vozovypark.service.CarServiceImpl" >  
+        <property name="carDao" ref="carDao" />
+        <property name="mapper" ref="mapper" />
+    </bean>
+    
+    <bean id="ReservationService" name="ReservationService" class="cz.muni.fi.pa165.vozovypark.service.ReservationServiceImpl" >  
+        <property name="reservationDao" ref="reservationDao" />
+        <property name="carDao" ref="carDao" />
+        <property name="mapper" ref="mapper" />
+    </bean>
+</beans>

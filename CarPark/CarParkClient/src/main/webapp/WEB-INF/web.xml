@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app>
+    <servlet>
+        <servlet-name>My Proxy</servlet-name>
+        <servlet-class>cz.muni.fi.pa165.vozovypark.carparkclient.ProxyServlet</servlet-class>
+        <init-param>
+            <param-name>proxyHost</param-name>
+            <param-value>localhost</param-value>
+        </init-param>
+        <init-param>
+            <param-name>proxyPort</param-name>
+            <param-value>8090</param-value>
+        </init-param>
+        <init-param>
+            <param-name>proxyPath</param-name>
+            <param-value>/pa165/resources</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>Ajax</servlet-name>
+        <servlet-class>cz.muni.fi.pa165.vozovypark.carparkclient.AjaxProxy</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>My Proxy</servlet-name>
+        <url-pattern>/proxy/*</url-pattern> 
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Ajax</servlet-name>
+        <url-pattern>/abc/*</url-pattern> 
+    </servlet-mapping>
+</web-app>

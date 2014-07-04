@@ -1,0 +1,125 @@
+# Resource strings used by the <stripes:errors> tag when there are no nested tags
+stripes.errors.header=<div style="color:#b72222; font-weight: bold">Please fix the following errors:</div><ol>
+stripes.errors.beforeError=<li style="color: #b72222;">
+stripes.errors.afterError=</li>
+stripes.errors.footer=</ol>
+
+stripes.dateTypeConverter.formatStrings=yyyy, dd.MM.yyyy
+
+# Resource strings used by the <stripes:errors> tag when displaying errors for a
+# specific field (e.g. <stripes:errors field="password"/>). If not supplied the
+# values above will be used instead.
+stripes.fieldErrors.header=
+stripes.fieldErrors.beforeError=<span style="color: #b72222;">
+stripes.fieldErrors.afterError=</span><br />
+stripes.fieldErrors.footer=
+
+# Resource strings used by the stripes:messages tag
+stripes.messages.header=<ul class="messages">
+stripes.messages.beforeMessage=<li>
+stripes.messages.afterMessage=</li>
+stripes.messages.footer=</ul>
+
+# Validation error messages produced by Stripes' built-in converter classes. These
+# are default error messages and can be overridden on per-field and per-form levels.
+# Using the 'invalidNumber' error for a field 'age' of a form posting to
+# '/user/Profile.action', the keys looked for (in order) would be:
+#      1: /user/Profile.action.age.invalidNumber
+#      2: /user/Profile.action.age.errorMessage
+#      3: age.errorMessage
+#      4: /user/Profile.action.invalidNumber
+#      5: converter.number.invalidNumber
+converter.number.invalidNumber=Hodnota ({1}) vlo\u017een\u00e1 do po\u013ea {0} mus\u00ed by\u0165 \u010d\u00edslo
+converter.byte.outOfRange=Hodnota ({1}) vlo\u017een\u00e1 do po\u013ea {0} bola mimo rozsah {2} to {3}
+converter.short.outOfRange=Hodnota ({1}) vlo\u017een\u00e1 do po\u013ea {0} bola mimo rozsah {2} to {3}
+converter.integer.outOfRange=Hodnota ({1}) vlo\u017een\u00e1 do po\u013ea {0} bola mimo rozsah {2} to {3}
+converter.float.outOfRange=Hodnota ({1}) vlo\u017een\u00e1 do po\u013ea {0} bola mimo rozsah {2} to {3}
+converter.enum.notAnEnumeratedValue=Hodnota "{1}" nie je val\u00eddna hodnota v poli {0}
+converter.date.invalidDate=Hodnota ({1}) vlo\u017een\u00e1 do po\u013ea {0} mus\u00ed by\u0165 val\u00eddny d\u00e1tum
+converter.email.invalidEmail=Hodnota ({1}) vlo\u017een\u00e1 do po\u013ea nie je val\u00eddna e-mailov\u00e1 adresa
+converter.creditCard.invalidCreditCard=Hodnota ({1}) vlo\u017een\u00e1 do po\u013ea nie je val\u00eddne \u010d\u00edslo kreditnej karty
+
+# Validation error messages produced by Stripes' annotation based validations. These
+# are default error messages and can be overridden on per-field and per-form levels.
+# Using the 'valueNotPresent' required field error for a field 'username' of a form
+# posting to '/user/Register.action', the keys looked for (in order) would be:
+#      1: /user/Register.action.username.valueNotPresent
+#      2: /user/Register.action.username.errorMessage
+#      3: username.errorMessage
+#      4: /user/Register.action.valueNotPresent
+#      5: validation.required.valueNotPresent
+validation.required.valueNotPresent={0} je povinn\u00e9 pole
+validation.minlength.valueTooShort={0} mus\u00ed by\u0165 aspo\u0148 {2} znaky dlh\u00e9
+validation.maxlength.valueTooLong={0} mus\u00ed by\u0165 menej ako {2} znaky dlh\u00e9
+validation.minvalue.valueBelowMinimum=Minim\u00e1lna povolen\u00e1 hodnota pre pole {0} je {2}
+validation.maxvalue.valueAboveMaximum=Maxim\u00e1lna povolen\u00e1 hodnota pre pole {0} je {2}
+validation.mask.valueDoesNotMatch=<em>{1}</em> nie je val\u00eddne {0}
+validation.expression.valueFailedExpression=Zadan\u00e1 hodnota  ({1}) pre pole {0} je nespr\u00e1vna
+validation.file.postBodyTooBig=Tot\u00e1lna ve\u013ekos\u0165 uploadu {3} KB prevy\u0161uje maxim\u00e1lnu ve\u013ekos\u0165 {2} KB
+
+# Main Menu 
+mainMenu.reservations = Rezerv\u00e1cie
+mainMenu.carParkAdmin = Administr\u00e1cia vozov\u00e9ho parku
+mainMenu.companyAdmin = Administr\u00e1cia spolo\u010dnosti
+
+# Reservations SubMenu
+reservationsSubMenu.myReservations = Moje rezerv\u00e1cie
+reservationsSubMenu.newReservation = Nov\u00e1 rezerv\u00e1cia
+reservationsSubMenu.accept= Potvrdi\u0165 rezerv\u00e1cie
+
+# Company Administration
+companyAdmin.employees = Zamestnanci
+companyAdmin.addEmployee = Prida\u0165 zamestnanca
+companyAdmin.companyLevels = Podnikov\u00e9 stupne
+companyAdmin.addCompanyLevel = Prida\u0165 podnikov\u00fd stupe\u0148
+
+companyAdmin.edit = Upravi\u0165
+companyAdmin.editCl = Upravi\u0165 podnikov\u00fd stupe\u0148
+companyAdmin.delete = Vymaza\u0165
+companyAdmin.changeAttributes = Zmeni\u0165 atrib\u00faty
+
+companyAdmin.editEmployee = Upravi\u0165 zamestnanca
+
+# Company Administration Buttons
+createButtonCl = Vytvori\u0165
+cancelButtonCl = Zru\u0161i\u0165
+saveButtonCl = Ulo\u017ei\u0165
+createButtonEmployee = Vytvori\u0165
+cancelButtonEmployee = Zru\u0161i\u0165
+saveButtonEmployee = Ulo\u017ei\u0165
+
+# Car Park Administration
+carPark.release = Vyda\u0165
+carPark.receive = Prija\u0165
+carPark.cars = Vozov\u00fd park
+carPark.addCar = Prida\u0165 auto
+carPark.editCar= Upravi\u0165 auto
+carPark.save = Ulo\u017ei\u0165 zmeny
+carPark.cancel = Zru\u0161i\u0165
+carPark.car = Auto
+carPark.employee = Zamestnanec
+
+car.model = Model
+car.brand = Zna\u010dka
+car.spz = \u0160PZ
+car.creationYear = Rok v\u00fdroby
+car.companyLevel = Podnikov\u00fd stupe\u0148
+car.available = Dostupn\u00e9
+car.delete = Vymaza\u0165 auto
+
+# Reservations
+reservation.id = ID
+reservation.from = Od
+reservation.to = Do
+reservation.start = \u0160tart
+reservation.end = Koniec
+reservation.confirmed = Potvrden\u00e9
+reservation.unconfirmed = Nepotvrden\u00e9
+reservation.employee = Zamestnanec
+reservation.car = Auto
+reservation.add = Prida\u0165
+reservation.cancel = Storno
+reservation.update = Aktualizova\u0165
+reservation.edit = Editova\u0165
+reservation.delete = Zmaza\u0165
+reservation.confirm = Potvrdi\u0165
